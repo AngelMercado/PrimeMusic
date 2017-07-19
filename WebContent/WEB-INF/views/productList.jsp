@@ -24,7 +24,7 @@
 ================================================== -->
   <body>
   <c:import url="/WEB-INF/views/templates/header.jsp"></c:import>
-    <div class="container-wrapper" style="margin-top:3rem;">
+    <div class="container-wrapper" style="margin-top:1rem;">
     	<div class="container">
     		<div class="page-header">
     			<h1>All Products</h1>
@@ -34,6 +34,7 @@
 			<table class="table">
 				<thead>
 					<tr>
+					<th>Photo</th>
 					<th>ProductName</th>
 					<th>Product Category</th>
 					<th>Product Condition</th>
@@ -44,6 +45,7 @@
 				<tbody>
 					<c:forEach items='${products}' var="product">
 					<tr>
+						<th><img src='<spring:url value="/res/images/${product.idProduct}.png" ></spring:url>' class="imageCell"/></th>
 						<th>${product.productName}</th>			
 						<th>${product.productCategory}</th>
 						<th>${product.productCondition}</th>
@@ -64,7 +66,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src='<c:url value = "res/js/jquery-1.11.3.minjs"/>'><\/script>')</script>
+    <script>window.jQuery || document.write('<script src=""<c:url value = "res/js/jquery-1.11.3.minjs"/>'><\/script>')</script>
     <script src='<c:url value="res/js/bootstrap.min.js"/>'></script></script>
 
   </body>

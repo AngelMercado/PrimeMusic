@@ -25,14 +25,14 @@
   <body>
   <c:import url="/WEB-INF/views/templates/header.jsp"></c:import>
     <div class="container-wrapper" style="margin-top:3rem;">
-    	<div class="container">
+    	<div class="container" ng-app="cartApp">
     		<div class="page-header">
     			<h1>Detail Product</h1>    			
     		</div>
     		<div class="container">
     			<div class="row">
     				<div class="col-md-5">
-    					<img src="" style="widht:100%;height:300px;"/>
+                                    <img src='<spring:url value="/res/images/${product.idProduct}.png" ></spring:url>' class="imageProduct"/>
     				</div>
     				<div class="col-md-5">
     					<h3>Product Name: ${product.productName}</h3>
@@ -40,6 +40,18 @@
     					<p>Manufacturer: ${product.productManufacture}</p>
     					<p>Category: ${product.productCategory}</p>
     					<p>Condition: ${product.productCondition}</p>
+    					<br>
+    					<c:set var="role" scope="page" value="${param.role}"></c:set>
+    					<c:set var="url"  scope="page" value="/productList"></c:set>
+    					<c:if test="${role.admin}">
+    						<c:set var="url" scope="page" value="/admin/productInventory"></c:set>
+    					</c:if>
+    					<p ng-controller="cartCtrl">
+    						<a href='<c:url value="${url}"></c:url>' class="btn btn-default">Back</a>
+<%--     						<a href="#" ng-click="addToCart('${product.productId}')"> <span class="glyphicon glyphicon-shopping-cart"/>Order Now</a> --%>
+   							<a href="#" ng-click='addToCart("${product.idProduct}")' class="btn btn-warning btn-large">Order Now</a>
+    						<a href='<spring:url value="/cart"></spring:url>' class="btn btn-default"> <span class="glyphicon glyphicon-hand-right"></span>View Cart</a>
+    					</p>
     				</div>
     			</div>
     		</div>
@@ -48,13 +60,13 @@
     	</div>
    	
     </div>
-	
+	<script src='<c:url value="/res/js/controller.js"></c:url>'></script>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src='<c:url value = "res/js/jquery-1.11.3.minjs"/>'><\/script>')</script>
-    <script src='<c:url value="/res/js/bootstrap.min.js"/>'></script></script>
+    <script>window.jQuery || document.write('<script src="<c:url value = "res/js/jquery-1.11.3.minjs"/>><\/script>');</script>
+    <script src='<c:url value="/res/js/bootstrap.min.js"/>'></script>
 
   </body>
 </html>

@@ -2,7 +2,10 @@
     pageEncoding="UTF-8"%>
  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
+<!-- Main CSS -->
+<link href='<c:url value="/res/css/main.css"></c:url>' rel="stylesheet">
+<!-- ANGULAR JS -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
   <div class="navbar-wrapper">
       <div class="container">
 
