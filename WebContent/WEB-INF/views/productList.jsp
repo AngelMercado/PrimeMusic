@@ -16,7 +16,7 @@
     <title>Carousel Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href='<spring:url value="res/css/bootstrap.min.css"></spring:url>' rel="stylesheet">
+    <link href='<spring:url value="/res/css/bootstrap.min.css"></spring:url>' rel="stylesheet">
 
     
   </head>
@@ -50,7 +50,7 @@
 						<th>${product.productCategory}</th>
 						<th>${product.productCondition}</th>
 						<th>${product.productPrice}</th>
-						<th><a href='<spring:url value="productList/productDetail/${product.idProduct}"></spring:url>'><span class=" glyphicon glyphicon-info-sign"/></a></th>						
+						<th><a href='<spring:url value="/product/productDetail/${product.idProduct}"></spring:url>'><span class=" glyphicon glyphicon-info-sign"/></a></th>						
 					</tr>
 					</c:forEach>
 				</tbody>

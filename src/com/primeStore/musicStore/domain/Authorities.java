@@ -1,9 +1,13 @@
 package com.primeStore.musicStore.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class Authorities {
+	@Id
+	@GeneratedValue
 	private int idAuthorities;
 	private String username;
 	private String Authority;

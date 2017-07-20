@@ -2,12 +2,14 @@ package com.primeStore.musicStore.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 import org.springframework.beans.propertyeditors.CustomMapEditor;
 
+@Entity
 public class BillingAddress implements Serializable{
 	private static final long serialVersionUID = 7770908352764424171L;
 	

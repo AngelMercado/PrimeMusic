@@ -2,10 +2,12 @@ package com.primeStore.musicStore.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+@Entity
 public class ShippingAddress implements Serializable{
 
 	private static final long serialVersionUID = 7554037784214930881L;

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,6 +19,7 @@ import org.springframework.beans.factory.config.CustomEditorConfigurer;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+@Entity
 public class Cart implements Serializable{
 	
 	private static final long serialVersionUID = 2122044308909281208L;
