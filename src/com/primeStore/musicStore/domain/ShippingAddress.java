@@ -16,70 +16,49 @@ public class ShippingAddress implements Serializable{
 	private String aparmentNumber;
 	private String cityState;
 	private String contry;
-	public int getIdBillingAddress() {
-		return idBillingAddress;
+	private String zipCode;
+	
+	public int getIdShippingAddress() {
+		return idShippingAddress;
 	}
-
-	public void setIdBillingAddress(int idBillingAddress) {
-		this.idBillingAddress = idBillingAddress;
+	public void setIdShippingAddress(int idShippingAddress) {
+		this.idShippingAddress = idShippingAddress;
 	}
-
 	public String getStreetName() {
 		return streetName;
 	}
-
 	public void setStreetName(String streetName) {
 		this.streetName = streetName;
 	}
-
 	public String getAparmentNumber() {
 		return aparmentNumber;
 	}
-
 	public void setAparmentNumber(String aparmentNumber) {
 		this.aparmentNumber = aparmentNumber;
 	}
-
 	public String getCityState() {
 		return cityState;
 	}
-
 	public void setCityState(String cityState) {
 		this.cityState = cityState;
 	}
-
 	public String getContry() {
 		return contry;
 	}
-
 	public void setContry(String contry) {
 		this.contry = contry;
 	}
-
 	public String getZipCode() {
 		return zipCode;
 	}
-
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
-
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-
-	private String zipCode;
 	
-	@OneToOne
-	private Customer customer;
+
 	
 
 }

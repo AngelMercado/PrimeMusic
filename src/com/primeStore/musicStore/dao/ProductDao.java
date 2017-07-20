@@ -8,8 +8,8 @@ import com.primeStore.musicStore.domain.Product;
 
 public interface ProductDao {
 	void addProduct(Product product);
-	Product getProductByID(String id);
+	Product getProductByID(int id);
 	List<Product> getProductList();	
-	void deleteProduct(String id);
+	void deleteProduct(int id);
 	void editProduct(Product product);
 }
