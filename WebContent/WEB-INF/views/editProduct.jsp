@@ -32,7 +32,7 @@
     			<p class="lead">Edit Product</p>
     		</div>
     		
-        <form:form action="${pageContext.request.contextPath}/admin/productInventory/editProduct" method="post" commandName="product" enctype="multipart/form-data">
+        <form:form action="${pageContext.request.contextPath}/admin/product/editProduct" method="post" commandName="product" enctype="multipart/form-data">
 				<div class="form-group">					
 					<label for="name">Name</label>
 					<form:hidden path="idProduct" id="id" class="form-control" value="${product.idProduct}"/>

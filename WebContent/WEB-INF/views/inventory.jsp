@@ -50,13 +50,13 @@
 						<th>${product.productCategory}</th>
 						<th>${product.productCondition}</th>
 						<th>${product.productPrice}</th>
-						<th><a href='<spring:url value="/admin/productInventory/editProduct/${product.idProduct}"></spring:url>'><span class=" glyphicon glyphicon-pencil"/></a></a><a href='<spring:url value="/admin/productInventory/deleteProduct/${product.idProduct}"></spring:url>'><span class=" glyphicon glyphicon-remove"/></a><a href='<spring:url value="/productList/productDetail/${product.idProduct}"></spring:url>'><span class=" glyphicon glyphicon-info-sign"/></a></th>						
+						<th><a href='<spring:url value="/admin/product/editProduct/${product.idProduct}"></spring:url>'><span class=" glyphicon glyphicon-pencil"/></a></a><a href='<spring:url value="/admin/product/deleteProduct/${product.idProduct}"></spring:url>'><span class=" glyphicon glyphicon-remove"/></a><a href='<spring:url value="/productList/productDetail/${product.idProduct}"></spring:url>'><span class=" glyphicon glyphicon-info-sign"/></a></th>						
 					</tr>
 					</c:forEach>
 				</tbody>
 				
 			</table>
-            <a class="btn btn-primary" href='<spring:url value="/admin/productInventory/addProduct"></spring:url>'>Add Product</a>
+            <a class="btn btn-primary" href='<spring:url value="/admin/product/addProduct"></spring:url>'>Add Product</a>
 	
 		<c:import url="/WEB-INF/views/templates/footer.jsp"></c:import>
     	</div>
