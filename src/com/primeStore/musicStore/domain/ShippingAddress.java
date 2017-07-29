@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -17,9 +18,20 @@ public class ShippingAddress implements Serializable{
 	private String streetName;
 	private String aparmentNumber;
 	private String cityState;
+	
 	private String contry;
 	private String zipCode;
+	@OneToOne
+	@JoinColumn(name="idCustomer")
+	private Customer customer;
 	
+	
+	public Customer getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 	public int getIdShippingAddress() {
 		return idShippingAddress;
 	}

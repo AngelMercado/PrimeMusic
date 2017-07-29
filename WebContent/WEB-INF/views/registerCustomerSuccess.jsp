@@ -27,48 +27,35 @@
 ================================================== -->
 <body>
 	<c:import url="/WEB-INF/views/templates/header.jsp"></c:import>
-	<div class="container-wrapper" style="margin-top: 3rem;">
-		<div class="container">
-			<div class="login-box">
-				<div class="page-header">
-				<h1>Login Page</h1>
-				<p class="lead">Login with Username and Password</p>
-				<c:if test="${not empty msg}">
-					<div class="msg">${msg}</div>
-				</c:if>	
-				
-			</div>
-
-			<form name="loginForm"
-				action='<c:url value="/j_spring_security_check"></c:url>'
-				method="post">
-				<c:if test="${not empty error}">
-					<div class="msg">${error}</div>
-				</c:if>	
-				<div class="form-group">
-					<label for="username">User:</label> 
-					<input type="text" id="username" name="username" class="form-control" />
+	<div class="container-wrapper">
+		<div class="container" ng-app="cartApp">
+			<div ng-controller="cartCtrl" ng-init="initCartId('${cartId}')">
+				<section>
+				<div class="jumbotron">
+					<h1>Cart</h1>
+					<p>All selected products in your shopping cart</p>
 				</div>
-				<div class="form-group">
-					<label for="password">Password:</label> 
-					<input type="password" id="password" name="password" class="form-control" />
-				</div>
-				<input type="submit" value="Submit" class="btn btn-default"/>
-				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-			</form>
+				</section>
+				<section>
 				
+				<p>Customer register successfully</p>
+				<p>${obj}</p>
+				<a href='<c:url value="/product/productList"></c:url>' class="btn btn-default">Products</a>
+			   </section>
+			
 			</div>
 			<c:import url="/WEB-INF/views/templates/footer.jsp"></c:import>
 		</div>
 
 	</div>
 
+	
 	<!-- Bootstrap core JavaScript
     ================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src='<c:url value = "/res/js/jquery-1.11.3.minjs"/>><\/script>')</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src='<c:url value="/res/js/controller.js"></c:url>'></script>
+	<script>window.jQuery || document.write('<script src="<c:url value = "/res/js/jquery-1.11.3.minjs"/>><\/script>')</script>
 	<script src='<c:url value="/res/js/bootstrap.min.js"/>'></script>
 	</script>
 

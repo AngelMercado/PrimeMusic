@@ -38,6 +38,10 @@ public class Customer implements Serializable{
 	@OneToOne
 	@JoinColumn(name="idShippingAddress")
 	private ShippingAddress shippingAddress;
+	@OneToOne
+	@JoinColumn(name="idCart")
+	@JsonIgnore
+	private Cart cart;
 	public int getIdCustomer() {
 		return idCustomer;
 	}
@@ -101,8 +105,8 @@ public class Customer implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	@OneToOne
-	@JoinColumn(name="idCart")
-	@JsonIgnore
-	private Cart cart;
+	
+	
+	
+	
 }
