@@ -24,7 +24,7 @@
 <!-- NAVBAR
 ================================================== -->
   <body>
-  <c:import url="/WEB-INF/views/templates/header.jsp"></c:import>
+  <c:import url="/WEB-INF/views/templates/navigation.jsp"></c:import>
     <div class="container-wrapper" style="margin-top:3rem;">
     	<div class="container">
     		<div class="page-header">

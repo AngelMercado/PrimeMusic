@@ -23,7 +23,7 @@
 <!-- NAVBAR
 ================================================== -->
   <body>
-  <c:import url="/WEB-INF/views/templates/header.jsp"></c:import>
+  <c:import url="/WEB-INF/views/templates/navigation.jsp"></c:import>
     <div class="container-wrapper" style="margin-top:3rem;">
     	<div class="container" ng-app="cartApp">
     		<div class="page-header">
@@ -50,7 +50,7 @@
     						<a href='<c:url value="${url}"></c:url>' class="btn btn-default">Back</a>
 <%--     						<a href="#" ng-click="addToCart('${product.productId}')"> <span class="glyphicon glyphicon-shopping-cart"/>Order Now</a> --%>
    							<a href="#" ng-click='addToCart("${product.idProduct}")' class="btn btn-warning btn-large">Order Now</a>
-    						<a href='<spring:url value="/cart"></spring:url>' class="btn btn-default"> <span class="glyphicon glyphicon-hand-right"></span>View Cart</a>
+    						<a href='<spring:url value="/customer/cart"></spring:url>' class="btn btn-default"> <span class="glyphicon glyphicon-hand-right"></span>View Cart</a>
     					</p>
     				</div>
     			</div>

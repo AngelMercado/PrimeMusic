@@ -4,7 +4,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en">
+<html lang="en" use-expressions="true">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +14,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title></title>
 
     <!-- Bootstrap core CSS -->
     <link href='<spring:url value="/res/css/bootstrap.min.css"></spring:url>' rel="stylesheet">
@@ -24,7 +24,7 @@
 <!-- NAVBAR
 ================================================== -->
   <body>
-  <c:import url="/WEB-INF/views/templates/header.jsp"></c:import>
+  <c:import url="/WEB-INF/views/templates/navigation.jsp"></c:import>
     <div class="container-wrapper" style="margin-top:3rem;">
     	<div class="container">
     		<div class="page-header">

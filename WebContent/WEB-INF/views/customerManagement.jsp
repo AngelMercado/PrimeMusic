@@ -13,7 +13,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Carousel Template for Bootstrap</title>
+    <title>Customer Managment Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href='<spring:url value="/res/css/bootstrap.min.css"></spring:url>' rel="stylesheet">
@@ -24,22 +24,37 @@
 ================================================== -->
   <body>
   <c:import url="/WEB-INF/views/templates/navigation.jsp"></c:import>
-    <div class="container-wrapper" style="margin-top:3rem;">
+    <div class="container-wrapper" style="margin-top:1rem;">
     	<div class="container">
     		<div class="page-header">
-    			<h1>Admin Page</h1>
-    			<c:if test="${pageContext.request.userPrincipal.name!=null}">
-   					<h2>Welcome:${pageContext.request.userPrincipal.name}
-    				<a href='<c:url value="/j_spring_security_logout"></c:url>'>Logout</a> </h2> 				
-    			</c:if>    			
-    			<p>Here you can view, check and modify the product Inventory!</p>
-    			<p class="lead"><a href='<spring:url value="/admin/productInventory"></spring:url>'>Product Inventory</a></p>
-    			<br>
-    			<p>Here you can view customer information!</p>
-    			<p class="lead"><a href='<spring:url value="/admin/customer"></spring:url>'>Customer Information</a></p>
+    			<h1>Customer managementy page</h1>
+    			<p class="lead">This is the customer management page</p>
     		</div>
     		
-			
+			<table class="table">
+				<thead>
+					<tr>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Phone</th>
+					<th>Username</th>
+					<th>Enabled</th>					
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items='${customerList}' var="customer">
+					<tr>
+						<th>${customer.customerName}</th>
+						<th>${customer.customerEmail}</th>			
+						<th>${customer.customerPhone}</th>
+						<th>${customer.username}</th>
+						<th>${customer.enabled}</th>
+												
+					</tr>
+					</c:forEach>
+				</tbody>
+				
+			</table>
 	
 		<c:import url="/WEB-INF/views/templates/footer.jsp"></c:import>
     	</div>
@@ -50,8 +65,8 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src='<c:url value = "res/js/jquery-1.11.3.minjs"/>'><\/script>')</script>
-    <script src='<c:url value="/res/js/bootstrap.min.js"/>'></script></script>
+    <script>window.jQuery || document.write('<script src=""<c:url value = "res/js/jquery-1.11.3.minjs"/>'><\/script>')</script>
+    <script src='<c:url value="res/js/bootstrap.min.js"/>'></script></script>
 
   </body>
 </html>

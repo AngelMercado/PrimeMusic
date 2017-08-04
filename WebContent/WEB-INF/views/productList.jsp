@@ -17,13 +17,15 @@
 
     <!-- Bootstrap core CSS -->
     <link href='<spring:url value="/res/css/bootstrap.min.css"></spring:url>' rel="stylesheet">
-
+    <link href='https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css' rel="stylesheet">
+    
+	
     
   </head>
 <!-- NAVBAR
 ================================================== -->
   <body>
-  <c:import url="/WEB-INF/views/templates/header.jsp"></c:import>
+  <c:import url="/WEB-INF/views/templates/navigation.jsp"></c:import>
     <div class="container-wrapper" style="margin-top:1rem;">
     	<div class="container">
     		<div class="page-header">
@@ -67,7 +69,16 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src=""<c:url value = "res/js/jquery-1.11.3.minjs"/>'><\/script>')</script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src='<c:url value="res/js/bootstrap.min.js"/>'></script></script>
-
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var searchCondition = '${searchCondition}';
+			$('.table').DataTable({
+				"lengthMenu":[[1,2,3,4,5,10,-1],[1,2,3,4,5,10,"ALL"]],
+				"oSearch": {"sSearch":searchCondition}
+			});
+		});
+	</script>
   </body>
 </html>

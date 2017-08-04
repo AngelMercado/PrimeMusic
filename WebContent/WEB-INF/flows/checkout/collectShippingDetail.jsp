@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -27,37 +28,54 @@
 ================================================== -->
 <body>
 	<c:import url="/WEB-INF/views/templates/navigation.jsp"></c:import>
-	<div class="container-wrapper" style="margin-top: 3rem;">
+	<div class="container-wrapper" style="margin-top: 2rem;">
 		<div class="container">
-			<div class="login-box">
-				<div class="page-header">
-				<h1>Login Page</h1>
-				<p class="lead">Login with Username and Password</p>
-				<c:if test="${not empty msg}">
-					<div class="msg">${msg}</div>
-				</c:if>	
-				
+			<div class="page-header">
+				<h1>Customer</h1>
+				<p class="lead">Customer details</p>
 			</div>
 
-			<form name="loginForm"
-				action='<c:url value="/j_spring_security_check"></c:url>'
-				method="post">
-				<c:if test="${not empty error}">
-					<div class="msg">${error}</div>
-				</c:if>	
-				<div class="form-group">
-					<label for="username">User:</label> 
-					<input type="text" id="username" name="username" class="form-control" />
-				</div>
-				<div class="form-group">
-					<label for="password">Password:</label> 
-					<input type="password" id="password" name="password" class="form-control" />
-				</div>
-				<input type="submit" value="Submit" class="btn btn-default"/>
-				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-			</form>
+			<form:form commandName="order" class="form-horizontal">
+				<h2>Shipping Address</h2>
 				
-			</div>
+				<div class="form-group">
+					<label for="bStreetname">Street Name</label>
+					<form:input path="cart.customer.shippingAddress.streetName" id="bStreetname"
+						class="form-control" />
+				</div>
+				<div class="form-group">
+					<label for="bAparmentNumber">Apartment Number</label>
+					<form:input path="cart.customer.shippingAddress.aparmentNumber"
+						id="bAparmentNumber" class="form-control" />
+				</div>
+				<div class="form-group">
+					<label for="bCity">City</label>
+					<form:input path="cart.customer.shippingAddress.city" id="bCity"
+						class="form-control" />
+				</div>
+				<div class="form-group">
+					<label for="bState">State</label>
+					<form:input path="cart.customer.shippingAddress.state" id="bState"
+						class="form-control" />
+				</div>
+				<div class="form-group">
+					<label for="bContry">Country</label>
+					<form:input path="cart.customer.shippingAddress.country" id="bCountry" class="form-control"/>
+					
+				</div>
+				<div class="form-group">
+					<label for="bZipCode">ZipCode</label>
+					<form:input path="cart.customer.shippingAddress.zipCode" id="bZipCode" class="form-control"/>
+				</div>
+				
+				<div class="form-group">
+					<input type="hidden" name="_flowExecutionKey">
+					<button class="btn btn-default" name="_eventId_backCollectCustommerInfo">Back</button>
+					<input type="submit" value="Next" class="btn btn-default" name="_eventId_shippingDetailCollected">
+					<button class="btn btn-default" name="_eventId_cancel">Cancel</button>
+				</div>
+			</form:form>
+
 			<c:import url="/WEB-INF/views/templates/footer.jsp"></c:import>
 		</div>
 

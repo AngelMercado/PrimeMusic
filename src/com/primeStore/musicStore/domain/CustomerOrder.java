@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import javax.websocket.OnError;
+
 @Entity
 public class CustomerOrder implements Serializable{
 
