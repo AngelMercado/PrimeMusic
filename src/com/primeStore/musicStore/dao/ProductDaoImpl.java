@@ -10,46 +10,49 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.primeStore.musicStore.domain.Product;
+
 @Repository
 @Transactional
-public class ProductDaoImpl implements ProductDao{
+public class ProductDaoImpl implements ProductDao {
 	@Autowired
 	SessionFactory sessionFactory;
+
 	@Override
 	public void addProduct(Product product) {
-		Session session= sessionFactory.getCurrentSession();
+		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(product);
-		session.flush();		
+		session.flush();
 	}
 
 	@Override
 	public Product getProductByID(int id) {
-		Session session=sessionFactory.getCurrentSession();
-		Product product = (Product)session.get(Product.class, id);
+		Session session = sessionFactory.getCurrentSession();
+		Product product = (Product) session.get(Product.class, id);
 		session.flush();
 		return product;
 	}
 
 	@Override
 	public List<Product> getProductList() {
-		Session session= sessionFactory.getCurrentSession();
-		Query query= session.createQuery("from Product");
-		List<Product> productList= query.list();
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from Product");
+		List<Product> productList = query.list();
 		return productList;
 	}
 
 	@Override
 	public void deleteProduct(int id) {
-		
-		Session session=sessionFactory.getCurrentSession();
+
+		Session session = sessionFactory.getCurrentSession();
 		session.delete(getProductByID(id));
 		session.flush();
 	}
+
 	@Override
-	 public void editProduct(Product product) {
-			Session session= sessionFactory.getCurrentSession();
-			session.saveOrUpdate(product);
-			session.flush();
-	 }
-	
+	public void editProduct(Product product) {
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(product);
+		session.flush();
+	}
+
 }

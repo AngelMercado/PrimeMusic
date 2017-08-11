@@ -24,7 +24,7 @@
 <!-- NAVBAR
 ================================================== -->
   <body>
-  <c:import url="/WEB-INF/views/templates/header.jsp"></c:import>
+  <c:import url="/WEB-INF/views/templates/navigation.jsp"></c:import>
     <div class="container-wrapper" style="margin-top:3rem;">
     	<div class="container">
     		<div class="page-header">
@@ -32,7 +32,7 @@
     			<p class="lead">Edit Product</p>
     		</div>
     		
-        <form:form action="${pageContext.request.contextPath}/admin/productInventory/editProduct" method="post" commandName="product" enctype="multipart/form-data">
+        <form:form action="${pageContext.request.contextPath}/admin/product/editProduct" method="post" commandName="product" enctype="multipart/form-data">
 				<div class="form-group">					
 					<label for="name">Name</label>
 					<form:hidden path="idProduct" id="id" class="form-control" value="${product.idProduct}"/>

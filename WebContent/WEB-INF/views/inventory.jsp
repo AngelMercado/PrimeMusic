@@ -17,13 +17,14 @@
 
     <!-- Bootstrap core CSS -->
     <link href='<spring:url value="/res/css/bootstrap.min.css"></spring:url>' rel="stylesheet">
-
-    
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <link href='https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css' rel="stylesheet">
+    <link href='https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css' rel="stylesheet">
   </head>
 <!-- NAVBAR
 ================================================== -->
   <body>
-  <c:import url="/WEB-INF/views/templates/header.jsp"></c:import>
+  <c:import url="/WEB-INF/views/templates/navigation.jsp"></c:import>
     <div class="container-wrapper" style="margin-top:3rem;">
     	<div class="container">
     		<div class="page-header">
@@ -50,13 +51,13 @@
 						<th>${product.productCategory}</th>
 						<th>${product.productCondition}</th>
 						<th>${product.productPrice}</th>
-						<th><a href='<spring:url value="/admin/productInventory/editProduct/${product.idProduct}"></spring:url>'><span class=" glyphicon glyphicon-pencil"/></a></a><a href='<spring:url value="/admin/productInventory/deleteProduct/${product.idProduct}"></spring:url>'><span class=" glyphicon glyphicon-remove"/></a><a href='<spring:url value="/productList/productDetail/${product.idProduct}"></spring:url>'><span class=" glyphicon glyphicon-info-sign"/></a></th>						
+						<th><a href='<spring:url value="/admin/product/editProduct/${product.idProduct}"></spring:url>'><span class=" glyphicon glyphicon-pencil"/></a></a><a href='<spring:url value="/admin/product/deleteProduct/${product.idProduct}"></spring:url>'><span class=" glyphicon glyphicon-remove"/></a><a href='<spring:url value="/productList/productDetail/${product.idProduct}"></spring:url>'><span class=" glyphicon glyphicon-info-sign"/></a></th>						
 					</tr>
 					</c:forEach>
 				</tbody>
 				
 			</table>
-            <a class="btn btn-primary" href='<spring:url value="/admin/productInventory/addProduct"></spring:url>'>Add Product</a>
+            <a class="btn btn-primary" href='<spring:url value="/admin/product/addProduct"></spring:url>'>Add Product</a>
 	
 		<c:import url="/WEB-INF/views/templates/footer.jsp"></c:import>
     	</div>
@@ -69,6 +70,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src='<c:url value = "res/js/jquery-1.11.3.minjs"/>'><\/script>')</script>
     <script src='<c:url value="/res/js/bootstrap.min.js"/>'></script></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src='<c:url value="res/js/bootstrap.min.js"/>'></script></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var searchCondition = '${searchCondition}';
+			$('.table').DataTable({
+				"lengthMenu":[[1,2,3,4,5,10,-1],[1,2,3,4,5,10,"ALL"]],
+				"oSearch": {"sSearch":searchCondition}
+			});
+		});
+	</script>
 
   </body>
 </html>

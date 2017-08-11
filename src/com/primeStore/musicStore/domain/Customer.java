@@ -2,6 +2,7 @@ package com.primeStore.musicStore.domain;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -10,7 +11,7 @@ import javax.persistence.OneToOne;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+@Entity
 public class Customer implements Serializable{
 
 	/**
@@ -37,6 +38,10 @@ public class Customer implements Serializable{
 	@OneToOne
 	@JoinColumn(name="idShippingAddress")
 	private ShippingAddress shippingAddress;
+	@OneToOne
+	@JoinColumn(name="idCart")
+	@JsonIgnore
+	private Cart cart;
 	public int getIdCustomer() {
 		return idCustomer;
 	}
@@ -100,8 +105,8 @@ public class Customer implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	@OneToOne
-	@JoinColumn(name="idCart")
-	@JsonIgnore
-	private Cart cart;
+	
+	
+	
+	
 }

@@ -28,6 +28,7 @@
   		classpath:com/primeStore/musicStore/config/persistence-context.xml
   		classpath:com/primeStore/musicStore/config/security-context.xml
   		classpath:com/primeStore/musicStore/config/service-context.xml
+  		classpath:com/primeStore/musicStore/config/webflow-context.xml
   	</param-value>
   </context-param>
 <!--  <resource-ref>

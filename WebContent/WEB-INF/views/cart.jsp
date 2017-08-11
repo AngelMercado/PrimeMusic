@@ -26,7 +26,7 @@
 <!-- NAVBAR
 ================================================== -->
 <body>
-	<c:import url="/WEB-INF/views/templates/header.jsp"></c:import>
+	<c:import url="/WEB-INF/views/templates/navigation.jsp"></c:import>
 	<div class="container-wrapper">
 		<div class="container" ng-app="cartApp">
 			<div ng-controller="cartCtrl" ng-init="initCartId('${cartId}')">
@@ -40,6 +40,7 @@
 				<div>
 					<a class="btn btn-danger pull-left" ng-click="clearCart()"><span
 						class="glyphicon glyphicon-remove-sign"></span>Clear Cart</a>
+					<a href='<c:url value="/order/${cartId}"/>' class="btn btn-success pull-right"> <span class="glyphicon-shopping-cart glyphicon"></span>CheckOut</a>
 				</div>
 				<table class="table table-hover">
 					<tr>
@@ -61,11 +62,11 @@
 						<th></th>
 						<th></th>
 						<th>Grand Total</th>
-						<th>{{cart.grandTotal}}</th>
+						<th>{{calGrandTotal()}}</th>
 					</tr>
 				</table>
 				{{cart}}
-				<a href='<c:url value="/productList"></c:url>' class="btn btn-default">Continue shoping</a> </section>
+				<a href='<c:url value="/product/productList"></c:url>' class="btn btn-default">Continue shoping</a> </section>
 			</div>
 			<c:import url="/WEB-INF/views/templates/footer.jsp"></c:import>
 		</div>
