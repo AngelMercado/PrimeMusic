@@ -128,6 +128,8 @@
 									name="_eventId_backCollectShippingDetail">Back</button>
 								<input type="submit" value="Submit Order" class="btn btn-default"
 									name="_eventId_orderConfirmed" />
+								<div id="paypal" ></div>
+									
 								<button class="btn btn-default" name="_eventId_cancel">Cancel</button>
 							</div>
 						</div>
@@ -145,9 +147,48 @@
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src='<c:url value = "/res/js/jquery-1.11.3.minjs"/>><\/script>')</script>
+	<script>window.jQuery || document.write('<script src="<c:url value = '/res/js/jquery-1.11.3.minjs'/>"><\/script>')</script>
 	<script src='<c:url value="/res/js/bootstrap.min.js"/>'></script>
-	</script>
+	<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+	<script>
+		    var CREATE_PAYMENT_URL  = 'http://localhost:8080/primeMusic/paypal/create-payment';
+		    var EXECUTE_PAYMENT_URL = 'http://localhost:8080/primeMusic/paypal/execute-payment';
+		
+		    paypal.Button.render({
+		
+		        env: 'production', //production  Or 'sandbox'
+		
+		        commit: false, // Show a 'Pay Now' button
+		        
+		        style: {
+		            size: 'small',
+		            color: 'silver',
+		            shape: 'rect',
+		            label: 'checkout'
+		        },
+		
+		        payment: function() {
+		            return paypal.request.post(CREATE_PAYMENT_URL,{
+		            	 idCart: '${order.cart.idCart}'
+		            }).then(function(data) {
+		                return data.id;
+		            });
+		        },
+		
+		        onAuthorize: function(data) {
+		            return paypal.request.post(EXECUTE_PAYMENT_URL, {
+		                paymentID: data.paymentID,
+		                payerID:   data.payerID		               
+		      
+		            }).then(function() {
+		
+		                // The payment is complete!
+		                // You can now show a confirmation message to the customer
+		            });
+		        }
+		
+		    }, '#paypal');
+</script>
 
 </body>
 </html>

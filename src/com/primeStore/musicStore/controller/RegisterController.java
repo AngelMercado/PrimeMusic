@@ -25,16 +25,17 @@ public class RegisterController {
 	public String registerCustomer(Model model) {
 		Customer customer = new Customer();	
 		BillingAddress billingAddress = customer.getBillingAddress();
-		ShippingAddress shippingAddress = new ShippingAddress();
+		
 		customer.setEnabled(true);
 		customer.setBillingAddress(billingAddress);
-		customer.setShippingAddress(shippingAddress);
 		model.addAttribute("customer",customer);
 		
 		return "registerCustomer";	
 	}
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public String registerCustomerPost(@Valid @ModelAttribute("customer")Customer customer,BindingResult result ,Model model) {		
+		ShippingAddress shippingAddress = new ShippingAddress();
+		customer.setShippingAddress(shippingAddress);
 		if (result.hasErrors()) {
 			return "registerCustomer";
 		}

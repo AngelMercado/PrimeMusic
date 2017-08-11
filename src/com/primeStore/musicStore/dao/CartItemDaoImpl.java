@@ -52,7 +52,7 @@ public class CartItemDaoImpl implements CartItemDao{
 	@Override
 	public CartItem getCartItemByProductId(int productId) {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("from CartItem where productId= ?");
+		Query query = session.createQuery("from CartItem where Idproduct= ?");
 		query.setInteger(0, productId);
 		session.flush();
 		

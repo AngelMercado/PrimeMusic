@@ -28,27 +28,31 @@
 
 	<view-state id="orderConfirmation" view="orderConfirmation.jsp"
 		model="order">
+<!-- 		<on-entry> -->
+<!-- 			<set name="flashScope.restClient" value="com.primeStoe" /> -->
+<!-- 		</on-entry> -->
 		<transition on="orderConfirmed" to="processOrder"></transition>
 		<transition on="backCollectShippingDetail" to="collectShippingDetail"></transition>
 	</view-state>
 
 	<action-state id="processOrder">
 		<evaluate expression="cartItemDaoImpl.removeAllItems(order.cart)"></evaluate>
+<!-- 		<evaluate expression="checkoutService.createToken()"></evaluate> -->
 		<transition to="thankCustommer"></transition>
 	</action-state>
 
 	<view-state id="thankCustommer" model="order" view="thankCustomer.jsp">
 		<transition to="endState"></transition>
 	</view-state>
-	
+
 	<end-state id="endState"></end-state>
-	
+
 	<end-state id="cancelCheckout" view="checkoutCancelled.jsp"></end-state>
-	
+
 	<view-state id="InvalidCartWarning">
 		<transition to="endState"></transition>
 	</view-state>
-	
+
 	<global-transitions>
 		<transition on="cancel" to="cancelCheckout"></transition>
 	</global-transitions>

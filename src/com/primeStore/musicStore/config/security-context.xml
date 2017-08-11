@@ -20,7 +20,7 @@
 
 </security:http>
 
-<security:authentication-manager>
+<security:authentication-manager >
 	<security:authentication-provider>
 		<security:jdbc-user-service 
 			data-source-ref="dataSource"
