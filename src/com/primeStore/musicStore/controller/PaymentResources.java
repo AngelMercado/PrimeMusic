@@ -8,6 +8,8 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.web.bind.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -31,33 +33,36 @@ import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.PayPalRESTException;
 import com.primeStore.musicStore.domain.Cart;
 import com.primeStore.musicStore.domain.CartItem;
+import com.primeStore.musicStore.domain.Customer;
 import com.primeStore.musicStore.domain.CustomerOrder;
 import com.primeStore.musicStore.restClient.PayPalClientImpl;
 import com.primeStore.musicStore.service.CartService;
 import com.primeStore.musicStore.service.CustomerOrderService;
+import com.primeStore.musicStore.service.CustomerService;
 
 @Controller
-@RequestMapping("/paypal")
+@RequestMapping("/payment")
 public class PaymentResources {
 
 	private APIContext apiContext = new APIContext(
-			"",
-			"", "");
+			"******",
+			"******", "live");
 	@Autowired
 	CartService cartService;
 	
 	@Autowired
 	CustomerOrderService customerOrderService;
+	 
+	@Autowired
+	CustomerService customerService;
 
 	final static Logger logger = Logger.getLogger(PaymentResources.class);
-
+	
 	@RequestMapping(value = "/create-payment", method = RequestMethod.POST)
 	public @ResponseBody Map<String, String> createPayment(@RequestParam(value="idCart") int param) {
 		
 		Map<String, String> res = new HashMap<String, String>();
 		int idCart = param;
-//				Double.toString(customerOrderService.getCustommerOrderGrandTotal(idCart));
-		// Set payer details
 		Payer payer = new Payer();
 		payer.setPaymentMethod("paypal");
 
@@ -127,25 +132,36 @@ public class PaymentResources {
 		return res;
 	}
 
-	@RequestMapping(value = "/execute-payment", method = RequestMethod.POST)
-	public @ResponseBody String executePayment(@RequestBody MultiValueMap<String, String> params) {
+	@RequestMapping(value = "/proccess",method=RequestMethod.GET)
+	public String executePayment(@RequestParam(value="paymentId") String paymentId,@RequestParam(value="token") String token, @RequestParam(value="PayerID") String payerId) {
 		Payment payment = new Payment();
-		payment.setId(params.get("paymentID").toString());
+		payment.setId(paymentId);
 
 		PaymentExecution paymentExecution = new PaymentExecution();
-		paymentExecution.setPayerId(params.get("payerID").toString());
+		paymentExecution.setPayerId(payerId);
 
 		Payment createdPayment;
 
 		try {
 			createdPayment = payment.execute(apiContext, paymentExecution);
+			if(createdPayment.getState().equals("approved")) {
+				return "successPayment";
+			}else {
+				return "failPayment";
+			}
 
 		} catch (PayPalRESTException e) {
 			createdPayment = null;
 			System.out.println(e.getDetails());
 		}
 
-		return "";
+		return "invalidPayment";
+	}
+	@RequestMapping(value="/cancelled",method=RequestMethod.GET)
+	public String cancellPayment(@AuthenticationPrincipal User activeUser) {
+		Customer customer = customerService.getCustomerByUserName(activeUser.getUsername());
+		int cartId = customer.getCart().getIdCart();
+		return "redirect:/customer/cart/" + cartId;
 	}
 
 }

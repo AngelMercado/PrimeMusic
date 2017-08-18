@@ -28,8 +28,8 @@ public class PayPalClientImpl implements PayPalClient, Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = -7475202524860360046L;
-	private static final String REST_SERVICE_URI = "https://api.sandbox.paypal.com/v1/oauth2/token";
-	private static final String PLAIN_CREDENTIALS = "Afz9bcPMFlilFxF0F4M0v56aL-aOIbkHDDxkBymGgegMJ2CrGQ_s0R2qwO2omZNrqGNqmxGx1US4qHyF:EHoTBiDdu9x2fJ-tCxYbIXWyN7qCDo6-T8ybmhR0i5b2K-Fgal6YzzpyJLpeRLkwDFn8mLYWSH-3koK9";
+	private static final String REST_SERVICE_URI = "*****";
+	private static final String PLAIN_CREDENTIALS = "*****";
 	final static Logger logger = Logger.getLogger(PayPalClientImpl.class);
 
 	public PayPalClientImpl() {
