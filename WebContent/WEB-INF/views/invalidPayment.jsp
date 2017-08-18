@@ -32,10 +32,16 @@
 			<div >
 				<section>
 				<div class="jumbotron">
-					<h1>Thank you for your business</h1>
-					<p>You order will be shipping in two business days!</p>
+					<h1>Invalid Payment</h1>
+					<p>try again!</p>
 				</div>
-				</section>			
+				</section>
+				<section>
+				
+							
+				<a href='<c:url value="/"></c:url>' class="btn btn-default">OK</a>
+			   </section>
+			
 			</div>
 			<c:import url="/WEB-INF/views/templates/footer.jsp"></c:import>
 		</div>

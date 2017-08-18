@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
@@ -29,13 +29,19 @@
 	<c:import url="/WEB-INF/views/templates/navigation.jsp"></c:import>
 	<div class="container-wrapper">
 		<div class="container" ng-app="cartApp">
-			<div >
+			<div ng-controller="cartCtrl" ng-init="initCartId('${cartId}')">
 				<section>
 				<div class="jumbotron">
-					<h1>Thank you for your business</h1>
-					<p>You order will be shipping in two business days!</p>
+					<h1>Cart</h1>
+					<p>All selected products in your shopping cart</p>
 				</div>
-				</section>			
+				</section>
+				<section>
+				
+				<p>Payment successfully</p>				
+				<a href='<c:url value="/product/productList"></c:url>' class="btn btn-default">Products</a>
+			   </section>
+			
 			</div>
 			<c:import url="/WEB-INF/views/templates/footer.jsp"></c:import>
 		</div>

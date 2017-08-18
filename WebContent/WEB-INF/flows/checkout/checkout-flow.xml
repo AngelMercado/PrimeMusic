@@ -5,6 +5,8 @@
                           http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
 
 	<var name="order" class="com.primeStore.musicStore.domain.CustomerOrder" />
+	
+	
 	<action-state id="addCartToOrder">
 		<!-- redirect to InvalidCartWarning if valid method throws a exception 
 			otherwise redirect to collectCustomeInfo -->
@@ -14,6 +16,7 @@
 		<transition to="InvalidCartWarning" on-exception="java.io.IOException"></transition>
 		<transition to="collectCustomerInfo"></transition>
 	</action-state>
+	
 	<view-state id="collectCustomerInfo" view="collectCustomerInfo.jsp"
 		model="order">
 		<transition on="customerInfoCollected" to="collectShippingDetail">
@@ -28,19 +31,33 @@
 
 	<view-state id="orderConfirmation" view="orderConfirmation.jsp"
 		model="order">
-<!-- 		<on-entry> -->
-<!-- 			<set name="flashScope.restClient" value="com.primeStoe" /> -->
-<!-- 		</on-entry> -->
+		<!-- <on-entry> -->
+		<!-- <set name="flashScope.restClient" value="com.primeStoe" /> -->
+		<!-- </on-entry> -->
+		<transition on="securePaypal" to="processPayPalOrder"></transition>
 		<transition on="orderConfirmed" to="processOrder"></transition>
 		<transition on="backCollectShippingDetail" to="collectShippingDetail"></transition>
 	</view-state>
 
+	<action-state id="processPayPalOrder">
+		<evaluate expression="payPalService.createPayment(order.cart)" result="flowScope.paypalUrl"></evaluate>
+		<transition to="InvalidPayment" on-exception="java.io.IOException"></transition>
+		<transition to="RedirectPayPal"></transition>				
+	</action-state>
+	
+	<view-state id="RedirectPayPal" view="externalRedirect:#{flowScope.paypalUrl}"></view-state>
+	
 	<action-state id="processOrder">
 		<evaluate expression="cartItemDaoImpl.removeAllItems(order.cart)"></evaluate>
-<!-- 		<evaluate expression="checkoutService.createToken()"></evaluate> -->
+		<!-- <evaluate expression="checkoutService.createToken()"></evaluate> -->
 		<transition to="thankCustommer"></transition>
 	</action-state>
-
+	
+	
+	<view-state id="invalidPayment"  view="invalidPayment.jsp">
+		<transition to="endState"></transition>
+	</view-state>
+	
 	<view-state id="thankCustommer" model="order" view="thankCustomer.jsp">
 		<transition to="endState"></transition>
 	</view-state>
