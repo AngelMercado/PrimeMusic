@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /home/angel/eclipse-workspace/primeMusic/src/com/primeStore/musicStore/controller/OrderController.java
 /home/angel/eclipse-workspace/primeMusic/src/com/primeStore/musicStore/restClient/PayPalClientImpl.java
 /home/angel/eclipse-workspace/primeMusic/src/com/primeStore/musicStore/domain/Cart.java
@@ -42,3 +43,28 @@
 /home/angel/eclipse-workspace/primeMusic/src/com/primeStore/musicStore/domain/Authorities.java
 /home/angel/eclipse-workspace/primeMusic/src/com/primeStore/musicStore/controller/HomeController.java
 /home/angel/eclipse-workspace/primeMusic/src/com/primeStore/musicStore/domain/Customer.java
+=======
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/controller/admin/AdminProductController.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/controller/admin/AdminController.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/domain/CartItem.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/domain/User.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/controller/ProductController.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/dao/ProductDao.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/domain/Cart.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/service/ProductServiceImpl.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/service/CustomerServiceImpl.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/dao/CartDao.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/domain/Authorities.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/controller/RegisterController.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/dao/ProductDaoImpl.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/service/ProductService.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/domain/ShippingAddress.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/controller/HomeController.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/domain/CustomerOrder.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/dao/CustomerDao.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/domain/Product.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/dao/CustomerDaoImp.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/domain/Customer.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/domain/BillingAddress.java
+/home/angel/workspace/primeMusic/src/com/primeStore/musicStore/service/CustomerService.java
+>>>>>>> 3b301051c0b2ed12f863395fbc71c885ee1ff54c
