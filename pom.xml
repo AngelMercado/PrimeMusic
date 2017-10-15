@@ -40,7 +40,7 @@
 				<configuration>
 					<url>http://localhost:8080/manager/text</url>
 					<server>TomcatServer</server>
-					<path>/primeMusic</path>
+					<path>/primeTed</path>
 				</configuration>
 			</plugin>
 			<plugin>
