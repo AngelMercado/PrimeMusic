@@ -37,7 +37,7 @@
 				<prop key="javax.persistence.validator.group.pre-persistence"></prop>
 				<prop key="javax.persistence.validator.group.pre-update"></prop>
 				<prop key="javax.persistence.validator.group.pre-remove"></prop>
-<!-- 				<prop key="hibernate.hbm2ddl.auto">update</prop>						 -->
+				<prop key="hibernate.hbm2ddl.auto">update</prop>						
 			</props>
 		</property>
 		

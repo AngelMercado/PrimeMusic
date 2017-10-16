@@ -42,7 +42,7 @@ public class Product implements Serializable{
     //CascadeType.ALL apply CRUD to child of products
     //Parent always is One and Many is childs
     //FetchType.EAGER updates the objects before make a query, default is LAZY
-    @OneToMany(mappedBy="product", cascade = CascadeType.ALL,fetch=FetchType.EAGER)
+    @OneToMany(mappedBy="product")
     @JsonIgnore
     private List<CartItem> cartItemsList;
     

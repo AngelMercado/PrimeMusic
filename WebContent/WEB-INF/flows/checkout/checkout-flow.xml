@@ -54,7 +54,7 @@
 	</action-state>
 	
 	
-	<view-state id="invalidPayment"  view="invalidPayment.jsp">
+	<view-state id="InvalidPayment"  view="invalidPayment.jsp">
 		<transition to="endState"></transition>
 	</view-state>
 	

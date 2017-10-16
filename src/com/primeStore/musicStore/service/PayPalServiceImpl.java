@@ -25,8 +25,8 @@ import com.primeStore.musicStore.domain.CartItem;
 public class PayPalServiceImpl implements PayPalService{
 
 	private APIContext apiContext = new APIContext(
-			"******",
-			"******", "live");
+			"",
+			"", "live");
 	@Autowired
 	CartService cartService;
 	
